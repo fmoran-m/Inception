@@ -1,7 +1,0 @@
-uu
-RUN apk upgrade && apk update && apk add nginx openssl
-
-EXPOSE 443
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
