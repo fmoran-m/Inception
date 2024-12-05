@@ -6,7 +6,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-keyout /etc/ssl/mycerts/server.key -out /etc/ssl/mycerts/server.crt \
 	-subj "/C=ES/ST=Madrid/L=Madrid/O=42Madrid/CN=fmoran-m.42.fr"
 
-COPY ./conf/index.html	/var/www/html/index.html
+COPY ./conf/index.html	/var/www/html/index.html #esto lo puedo quitar, es solo de prueba
 COPY ./conf/default.conf /etc/nginx/http.d/default.conf
 
 EXPOSE 443
