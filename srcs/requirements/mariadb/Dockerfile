@@ -9,6 +9,6 @@ EXPOSE 3306
 
 COPY tools/mdb_script.sh /mdb_script.sh
 
-RUN chmod 777 mdb_script.sh
+RUN chmod 775 mdb_script.sh
 
 CMD ["/mdb_script.sh"]

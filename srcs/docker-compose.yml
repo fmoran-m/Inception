@@ -5,6 +5,12 @@ services:
             dockerfile: Dockerfile
         ports:
             - "443:443"
+        env_file:
+            - .env
+        networks:
+            - docker_network
+        depends_on:
+            - wordpress
         restart: always
     mariadb:
         build:
@@ -14,4 +20,20 @@ services:
             - "3306:3306"
         env_file:
             - .env
+        networks:
+           - docker_network
         restart: always
+    wordpress:
+        build:
+            context: ./requirements/wordpress/
+            dockerfile: Dockerfile
+        ports:
+            - "9000:9000"
+        env_file:
+            - .env
+        networks:
+            - docker_network
+        restart: always
+networks:
+    docker_network:
+        driver: bridge
