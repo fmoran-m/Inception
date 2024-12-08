@@ -1,10 +1,8 @@
 FROM alpine:3.19
 
 #Add php
-RUN apk upgrade && apk update && apk add php-fpm
-
 #Add tools for wordpress kit
-RUN apk add wget zip
+RUN apk update && apk add wget zip php82 php82-fpm php82-cgi
 
 #Add WP Zip
 RUN wget https://es.wordpress.org/latest-es_ES.zip
@@ -20,4 +18,4 @@ RUN chmod -R 755 var/www/html
 
 EXPOSE 9000
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["/usr/sbin/php-fpm82", "--nodaemonize"]
