@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
 #Add php
 #Add tools for wordpress kit
@@ -18,4 +18,6 @@ RUN chmod -R 755 var/www/html
 
 EXPOSE 9000
 
-ENTRYPOINT ["/usr/sbin/php-fpm82", "--nodaemonize"]
+COPY ./conf/www.conf /etc/php82/php-fpm.d/www.conf
+
+ENTRYPOINT ["/usr/sbin/php-fpm82", "-F"]

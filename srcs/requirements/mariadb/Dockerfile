@@ -1,6 +1,6 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
-RUN apk update && apk add mariadb && apk add mysql && apk add mysql-client
+RUN apk update && apk add mariadb mysql mysql-client
 RUN mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
