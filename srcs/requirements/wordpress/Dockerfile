@@ -19,6 +19,5 @@ RUN chmod -R 755 var/www/html
 EXPOSE 9000
 
 COPY ./conf/www.conf /etc/php82/php-fpm.d/www.conf
-COPY ./conf/wp-config.php /var/www/html/wp-config.php
 
-CMD ["/usr/sbin/php-fpm82", "-F"]
+CMD ["./tools/www_script.sh"]
