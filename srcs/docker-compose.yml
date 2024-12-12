@@ -24,6 +24,8 @@ services:
             - .env
         networks:
            - docker_network
+        volumes:
+            - wp_database:/var/lib/mysql
         restart: always
     wordpress:
         container_name: wordpress
@@ -49,3 +51,9 @@ volumes:
       type: none
       o: bind
       device: /home/fmoran-m/wp_website
+  wp_database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fmoran-m/wp_database
