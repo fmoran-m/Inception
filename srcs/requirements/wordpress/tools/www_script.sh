@@ -12,7 +12,10 @@ sed -i "s/define( 'DB_PASSWORD', 'password_here' );/define( 'DB_PASSWORD', '${MD
 sed -i "s/define( 'DB_HOST', 'localhost' );/define( 'DB_HOST', 'mariadb:3306' );/g" $FILE
 
 cd /var/www/html
-#wp core config --dbname="$MDB_DB" --dbuser="$MDB_USER" --dbpass="$MDB_USER_PASS" --dbhost=mariadb:3306
-wp core install --url=https://fmoran-m.42.fr --title=Inception --admin_user="$WP_USER" --admin_password="$WP_PASS" --admin_email=false_mail@gmail.com --skip-email
+if [ ! -f /var/www/html/wp-config.php]; then
+    wp core config --dbname=$MDB_DB --dbuser=$MDB_USER --dbpass=$MDB_USER_PASS --dbhost=mariadb:3306
+fi
+
+wp core install --url=https://fmoran-m.42.fr --title=Inception --admin_user=$WP_ADMIN --admin_password=$WP_PASS --admin_email=false_mail@gmail.com --skip-email
 
 /usr/sbin/php-fpm82 -F

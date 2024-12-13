@@ -50,10 +50,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/fmoran-m/wp_website
+      device: /home/fmoran-m/data/wp_website
   wp_database:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/fmoran-m/wp_database
+      device: /home/fmoran-m/data/wp_database
