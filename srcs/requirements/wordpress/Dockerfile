@@ -2,7 +2,7 @@ FROM alpine:3.20
 
 #Add php
 #Add tools for wordpress kit
-RUN apk update && apk add zip wget php82 php82-cli php82-fpm php82-cgi php82-mysqli php82-phar php82-iconv mariadb-client
+RUN apk update && apk add zip wget php82 php82-cli php82-fpm php82-cgi php82-mysqli php82-phar php82-iconv
 
 #Add WP Zip
 RUN wget https://es.wordpress.org/latest-es_ES.zip

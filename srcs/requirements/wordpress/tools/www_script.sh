@@ -13,7 +13,7 @@ sed -i "s/define( 'DB_HOST', 'localhost' );/define( 'DB_HOST', 'mariadb:3306' );
 
 cd /var/www/html
 
-if [ ! -f /var/www/html/wp-config.php]; then
+if [ ! -f /var/www/html/wp-config.php ]; then
     wp core config --dbname=$MDB_DB --dbuser=$MDB_USER --dbpass=$MDB_USER_PASS --dbhost=mariadb:3306
 fi
 
