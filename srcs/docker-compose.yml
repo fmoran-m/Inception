@@ -4,6 +4,7 @@ services:
         build:
             context: ./requirements/nginx/
             dockerfile: Dockerfile
+        image: nginx
         ports:
             - "443:443"
         env_file:
@@ -20,6 +21,7 @@ services:
         build:
             context: ./requirements/mariadb/
             dockerfile: Dockerfile
+        image: mariadb
         env_file:
             - .env
         networks:
@@ -32,6 +34,7 @@ services:
         build:
             context: ./requirements/wordpress/
             dockerfile: Dockerfile
+        image: wordpress
         depends_on:
             - mariadb
         env_file:
